@@ -1,0 +1,1 @@
+(()=>{"use strict";var e;null===(e=document.querySelector(".test"))||void 0===e||e.addEventListener("click",(()=>{alert("test")}))})();
