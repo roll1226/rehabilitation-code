@@ -5,9 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackWatchedGlobEntries = require("webpack-watched-glob-entries-plugin");
 
 const entries = WebpackWatchedGlobEntries.getEntries(
-  [path.resolve(__dirname, "./src/js/**/*.js")],
+  [path.resolve(__dirname, "./src/ts/**/*.ts")],
   {
-    ignore: path.resolve(__dirname, "./src/js/**/_*.js"),
+    ignore: path.resolve(__dirname, "./src/ts/**/_*.ts"),
   }
 )();
 
@@ -34,9 +34,9 @@ module.exports = (outputFile) => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: "ts-loader",
       },
       {
         test: /\.(sa|sc|c)ss$/i,
@@ -113,11 +113,11 @@ module.exports = (outputFile) => ({
   ],
 
   resolve: {
-    extensions: [".js", ".json"],
+    extensions: [".js", ".json", ".ts"],
     alias: {
       "@font": path.resolve(__dirname, "./src/font/"),
       "@image": path.resolve(__dirname, "./src/images/"),
-      "@js": path.resolve(__dirname, "./src/js/"),
+      "@ts": path.resolve(__dirname, "./src/ts/"),
       "@scss": path.resolve(__dirname, "./src/scss/"),
     },
   },
